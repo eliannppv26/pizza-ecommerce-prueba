@@ -1,0 +1,27 @@
+# --- Dependencias ---
+**/node_modules/
+
+# --- Builds / caché ---
+**/.next/
+**/out/
+**/build/
+**/dist/
+**/.cache/
+**/.tmp/
+**/.strapi/
+**/.turbo/
+
+# --- Entornos y SECRETOS (no subir nunca) ---
+**/.env
+**/.env.*
+!**/.env.example
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- Sistema operativo / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

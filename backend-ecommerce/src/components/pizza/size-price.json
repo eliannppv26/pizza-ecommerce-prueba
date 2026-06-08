@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_pizza_size_prices",
+  "info": {
+    "displayName": "size-price",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

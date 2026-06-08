@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_pizza_pizza_crust_options",
+  "info": {
+    "displayName": "crust-options",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "crust_type": {
+      "type": "enumeration",
+      "enum": [
+        "thin",
+        "thick",
+        "stuffed",
+        "gluten_free"
+      ]
+    },
+    "sauce_type": {
+      "type": "enumeration",
+      "enum": [
+        "tomato",
+        "white",
+        "bbq",
+        "pesto"
+      ]
+    },
+    "extra_price": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

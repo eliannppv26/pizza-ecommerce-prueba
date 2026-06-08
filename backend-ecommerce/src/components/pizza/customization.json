@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_pizza_customizations",
+  "info": {
+    "displayName": "customization",
+    "icon": "handHeart"
+  },
+  "options": {},
+  "attributes": {
+    "allow_extra": {
+      "type": "boolean"
+    },
+    "allow_remove": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

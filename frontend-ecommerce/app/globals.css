@@ -1,0 +1,248 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Bella Masa — Sistema visual (UI Brief)
+  Paleta: Crema · Rojo suave · Verde suave  ·  Tipografía: Quicksand
+  Solo modo claro. Baja saturación, alta luminosidad, bordes finos.
+*/
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+
+  /* Tokens de marca expuestos como utilidades (bg-brand-red, text-brand-green, ...) */
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-cream-dark: var(--brand-cream-dark);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-strong: var(--brand-red-strong);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-strong: var(--brand-green-strong);
+  --color-brand-charcoal: var(--brand-charcoal);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  /* Radios — sistema del brief (2/4/8/12/16) sobre base 12px */
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  /* ---- Marca ---- */
+  --brand-cream: #f5edd6;       /* Crema / Vainilla — fondo base */
+  --brand-cream-dark: #ede1c5;  /* Crema oscura — superficies elevadas */
+  --brand-red: #d98b82;         /* Rojo suave — acciones primarias */
+  --brand-red-strong: #c66a5e;  /* Rojo medio — énfasis y detalles */
+  --brand-green: #a7c6a0;       /* Verde suave — éxito / complementos */
+  --brand-green-strong: #8ab07f;/* Verde medio — estados confirmados */
+  --brand-charcoal: #3a332e;    /* Carbón — texto principal */
+
+  /* ---- Tokens shadcn mapeados a la marca ---- */
+  --background: #f5edd6;
+  --foreground: #3a332e;
+  --card: #fcf8ef;
+  --card-foreground: #3a332e;
+  --popover: #fcf8ef;
+  --popover-foreground: #3a332e;
+  --primary: #d98b82;
+  --primary-foreground: #fff8f3;
+  --secondary: #ede1c5;
+  --secondary-foreground: #5a4c43;
+  --muted: #ece1c8;
+  --muted-foreground: #7c7065;
+  --accent: #a7c6a0;
+  --accent-foreground: #2f3c2b;
+  --destructive: #c25548;
+  --border: #ddd0bd;
+  --input: #ddd0bd;
+  --ring: #d98b82;
+
+  --chart-1: #d98b82;
+  --chart-2: #c66a5e;
+  --chart-3: #a7c6a0;
+  --chart-4: #8ab07f;
+  --chart-5: #b9a98f;
+
+  --radius: 0.75rem; /* 12px */
+
+  --sidebar: #fcf8ef;
+  --sidebar-foreground: #3a332e;
+  --sidebar-primary: #d98b82;
+  --sidebar-primary-foreground: #fff8f3;
+  --sidebar-accent: #ede1c5;
+  --sidebar-accent-foreground: #3a332e;
+  --sidebar-border: #ddd0bd;
+  --sidebar-ring: #d98b82;
+}
+
+/* ===== Modo oscuro — paleta de marca adaptada ===== */
+.dark {
+  --background: #1d1916;
+  --foreground: #f2ead9;
+  --card: #272019;
+  --card-foreground: #f2ead9;
+  --popover: #272019;
+  --popover-foreground: #f2ead9;
+  --primary: #e09a91;
+  --primary-foreground: #2a1c19;
+  --secondary: #332b24;
+  --secondary-foreground: #ece1cd;
+  --muted: #2e2720;
+  --muted-foreground: #b6a791;
+  --accent: #8ab07f;
+  --accent-foreground: #16201a;
+  --destructive: #e58072;
+  --border: #3b322a;
+  --input: #3b322a;
+  --ring: #e09a91;
+
+  --chart-1: #e09a91;
+  --chart-2: #e8a99f;
+  --chart-3: #9ec494;
+  --chart-4: #a9cf9f;
+  --chart-5: #c9b89c;
+
+  /* Acentos de marca: más luminosos para resaltar sobre superficies oscuras */
+  --brand-red: #e09a91;
+  --brand-red-strong: #e8a99f;
+  --brand-green: #9ec494;
+  --brand-green-strong: #a9cf9f;
+  --brand-charcoal: #0f0d0b;
+}
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* Sombra máxima permitida por el brief: 0 2px 8px rgba(0,0,0,.08) */
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(58, 51, 46, 0.06);
+  }
+}
+
+/* ===================================================================
+   Motion — sutil y premium (UI Brief)
+   ease-out 200–350ms · sin parallax agresivo · respeta reduced-motion
+   =================================================================== */
+@keyframes bm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bm-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bm-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes bm-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+@keyframes bm-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: bm-fade-in 0.35s ease-out both; }
+  .animate-fade-up { animation: bm-fade-up 0.45s ease-out both; }
+  .animate-scale-in { animation: bm-scale-in 0.3s ease-out both; }
+  .animate-pop { animation: bm-pop 0.3s ease-out; }
+
+  /* Reveal al hacer scroll (lo activa el componente <Reveal/>) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Brillo sutil que recorre un elemento (hero, banners) al hacer hover */
+  .sheen { position: relative; overflow: hidden; }
+  .sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+  }
+  .sheen:hover::after {
+    animation: bm-shimmer 0.9s ease-out;
+  }
+
+  /* Transición base premium para elementos interactivos */
+  .transition-premium {
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

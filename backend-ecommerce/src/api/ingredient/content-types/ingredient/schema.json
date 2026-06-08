@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "singularName": "ingredient",
+    "pluralName": "ingredients",
+    "displayName": "Ingredient"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "is_premium": {
+      "type": "boolean"
+    },
+    "extra_price": {
+      "type": "decimal"
+    },
+    "pizzas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pizza.pizza",
+      "mappedBy": "ingredients"
+    }
+  }
+}

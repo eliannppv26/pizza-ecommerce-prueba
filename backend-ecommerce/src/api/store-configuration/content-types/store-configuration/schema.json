@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "store_configurations",
+  "info": {
+    "singularName": "store-configuration",
+    "pluralName": "store-configurations",
+    "displayName": "Store-Configuration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "is_store_open": {
+      "type": "boolean"
+    },
+    "estimated_delivery_time": {
+      "type": "integer"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pizzas",
+  "info": {
+    "singularName": "pizza",
+    "pluralName": "pizzas",
+    "displayName": "Pizza"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "is_available": {
+      "type": "boolean"
+    },
+    "is_featured": {
+      "type": "boolean"
+    },
+    "label": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "bestseller",
+        "promo"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "pizzas"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "inversedBy": "pizzas"
+    },
+    "config": {
+      "type": "component",
+      "component": "pizza.customization",
+      "repeatable": false
+    },
+    "crust": {
+      "type": "component",
+      "component": "pizza.pizza-crust-options",
+      "repeatable": false
+    },
+    "sizes": {
+      "type": "component",
+      "component": "pizza.size-price",
+      "repeatable": true
+    },
+    "combos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::combo.combo",
+      "mappedBy": "pizzas"
+    }
+  }
+}
